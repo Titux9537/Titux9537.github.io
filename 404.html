@@ -29,21 +29,33 @@
         }
 
         .error-message {
-            font-size: calc(50vw / 10); /* Taille de police égale à 50% de la largeur de la fenêtre, divisée par 10 pour un ajustement visuel */
-            font-weight: bold; /* Texte en gras */
+            font-size: 18px; /* Taille de police ajustée pour les smartphones */
+            font-weight: bold;
             text-align: center;
-            color: black !important; /* Couleur du texte en noir */
-            width: 50vw; /* Largeur du texte égale à 50% de la largeur de la fenêtre */
-            position: relative; /* Assure que le texte est affiché au-dessus de la superposition */
-            z-index: 1; /* Assure que le texte est affiché au-dessus de la superposition */
-            margin-bottom: 20px; /* Espacement en bas du message */
+            color: black !important;
+            width: 80vw; /* Largeur du texte ajustée pour les smartphones */
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
         }
 
         .gif {
-            width: 100%; /* Largeur du GIF égale à 100% de la largeur du texte */
-            max-width: 50vw; /* Largeur maximale du GIF égale à 50% de la largeur de la fenêtre */
+            width: 80vw; /* Largeur du GIF ajustée pour les smartphones */
+            max-width: 300px; /* Largeur maximale du GIF pour les smartphones */
             position: relative;
-            top: -50px; /* Ajustez ceci pour positionner le GIF au-dessus du message */
+            top: -50px;
+        }
+
+        @media (min-width: 768px) {
+            .error-message {
+                font-size: calc(50vw / 10);
+                width: 50vw;
+            }
+
+            .gif {
+                width: 50vw;
+                max-width: 500px;
+            }
         }
     </style>
 </head>
@@ -71,4 +83,3 @@
 </body>
 
 </html>
-
