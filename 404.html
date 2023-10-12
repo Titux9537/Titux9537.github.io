@@ -6,22 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error 404</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #eaf7ea; /* Couleur de fond vert clair doux */
-            background-image: url('https://cdn.stocksnap.io/img-thumbs/960w/volcano-geology_VQNDOTLXGZ.jpg'), 
-                              url('https://cdn.stocksnap.io/img-thumbs/960w/rocks-background_XHC4RJ0PKS.jpg'), 
-                              url('https://cdn.stocksnap.io/img-thumbs/960w/rocky-landscape_JFAW0FJ4CN.jpg'); /* Chemins vers vos images de géologie */
-            background-repeat: no-repeat, no-repeat, no-repeat; /* Pas de répétition pour chaque image */
-            background-size: 30%, 30%, 30%; /* Redimensionner les images à 30% de la taille de l'élément parent */
-            background-position: left top, right top, center bottom; /* Position des images sur l'arrière-plan */
-
-
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #eaf7ea; /* Couleur de fond vert clair doux */
+    background-image: url('https://cdn.stocksnap.io/img-thumbs/960w/rocky-landscape_JFAW0FJ4CN.jpg'); /* Chemin vers votre image de géologie */
+    background-repeat: no-repeat; /* Pas de répétition de l'image */
+    background-size: cover; /* Redimensionner l'image pour couvrir l'ensemble de l'élément parent */
+    background-position: center center; /* Centrer l'image sur l'arrière-plan */
+}
         }
 
         .error-message {
