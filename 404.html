@@ -70,26 +70,26 @@
     <img class="gif" src="https://Titux9537.github.io/giphy.gif" alt="GIF">
 
     <!-- Balise audio invisible avec le chemin vers votre fichier audio -->
-    <audio id="myAudio" autoplay loop style="display: none;">
+    <audio id="myAudio">
         <source src="https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas l'élément audio.
     </audio>
 
+    <!-- Bouton de lecture -->
+    <button id="playButton">Lecture</button>
+
     <script>
-        // Lecture automatique de l'audio lorsque la page est chargée
         var audio = document.getElementById("myAudio");
+        var playButton = document.getElementById("playButton");
 
-        // L'événement 'loadedmetadata' garantit que le média est prêt à être joué
-        audio.addEventListener("loadedmetadata", function() {
-            audio.play();
-        });
-
-        // Sur les appareils mobiles, certaines politiques de lecture automatique peuvent nécessiter
-        // que l'utilisateur interagisse d'abord avec la page avant que l'audio ne puisse être joué.
-        // Si l'audio ne se lit pas automatiquement, vous pouvez ajouter un événement 'touchstart'
-        // pour demander à l'utilisateur d'interagir avec la page, déclenchant ainsi l'audio.
-        document.body.addEventListener("touchstart", function() {
-            audio.play();
+        playButton.addEventListener("click", function() {
+            if (audio.paused) {
+                audio.play();
+                playButton.textContent = "Pause";
+            } else {
+                audio.pause();
+                playButton.textContent = "Lecture";
+            }
         });
     </script>
 </body>
