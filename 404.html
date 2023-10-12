@@ -41,22 +41,24 @@
             top: -30%; /* Déplacer le message de 30% vers le haut */
         }
 
-        .gif {
-            width: 50%;
-            max-width: 200px;
-            position: relative;
-            top: -50px;
+        .gif-central {
+            width: 100px; /* Largeur du GIF central */
+            height: 100px; /* Hauteur du GIF central */
         }
 
-        @media (min-width: 768px) {
-            .error-message {
-                font-size: calc(50vw / 10);
-                width: 50vw;
-            }
+        .orbit {
+            position: absolute;
+            width: 50px; /* Largeur des GIFs en orbite */
+            height: 50px; /* Hauteur des GIFs en orbite */
+            animation: rotate 5s linear infinite; /* Animation de rotation */
+        }
 
-            .gif {
-                width: 30vw;
-                max-width: 300px;
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
             }
         }
     </style>
@@ -68,23 +70,31 @@
         PhD Student not found
     </div>
 
-    <!-- GIF proche du message -->
-    <img class="gif" src="https://Titux9537.github.io/giphy.gif" alt="GIF">
+    <!-- GIF central -->
+    <img class="gif-central" src="https://Titux9537.github.io/giphy.gif" alt="GIF central">
+
+    <!-- GIFs en orbite -->
+    <div class="orbit" style="top: calc(50% - 150px); left: calc(50% + 150px);">
+        <img src="chemin_vers_gif1.gif" alt="GIF en orbite 1">
+    </div>
+    <div class="orbit" style="top: calc(50% - 150px); left: calc(50% - 150px);">
+        <img src="chemin_vers_gif2.gif" alt="GIF en orbite 2">
+    </div>
+    <div class="orbit" style="top: calc(50% + 150px); left: calc(50% - 150px);">
+        <img src="chemin_vers_gif3.gif" alt="GIF en orbite 3">
+    </div>
+    <div class="orbit" style="top: calc(50% + 150px); left: calc(50% + 150px);">
+        <img src="chemin_vers_gif4.gif" alt="GIF en orbite 4">
+    </div>
 
     <script>
-        var musiqueLancee = false; // Indicateur pour vérifier si la musique a été lancée
-
-        // Télécharger la musique dès l'ouverture de la page
-        var audio = new Audio("https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3");
-
-        // Attendre 5 secondes avant de lancer la musique
-        setTimeout(function() {
-            // Vérifier si la musique n'a pas encore été lancée
-            if (!musiqueLancee) {
+        // Démarrer la musique 5 secondes après le premier contact avec l'écran
+        document.addEventListener("touchstart", function() {
+            setTimeout(function() {
+                var audio = new Audio("https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3");
                 audio.play();
-                musiqueLancee = true; // Mettre à jour l'indicateur pour indiquer que la musique a été lancée
-            }
-        }, 5000); // 5000 millisecondes (5 secondes)
+            }, 5000); // Délai de 5 secondes (5000 millisecondes)
+        });
     </script>
 </body>
 
