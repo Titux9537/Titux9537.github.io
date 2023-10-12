@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Error 404</title>
     <style>
         body {
@@ -45,21 +48,12 @@
         PhD Student not found
     </div>
 
-    <!-- Bouton pour autoriser la lecture automatique -->
-    <button onclick="playAudio()">Cliquez pour écouter</button>
-
     <!-- Balise audio invisible avec le chemin vers votre fichier audio sur GitHub -->
-    <audio id="myAudio" loop style="width: 0; height: 0; border: none;">
+    <audio autoplay loop style="width: 0; height: 0; border: none;">
         <source src="https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas l'élément audio.
     </audio>
-
-    <script>
-        function playAudio() {
-            var audio = document.getElementById("myAudio");
-            audio.play();
-        }
-    </script>
 </body>
 
 </html>
+
