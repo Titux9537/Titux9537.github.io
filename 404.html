@@ -58,7 +58,7 @@
     </div>
 
     <!-- Bouton pour lire la musique -->
-    <button class="play-button" onclick="playAudio()">Find you here!</button>
+    <button class="play-button">Find you here!</button>
 
     <!-- Balise audio invisible avec le chemin vers votre fichier audio sur GitHub -->
     <audio id="myAudio" loop style="width: 0; height: 0; border: none;">
@@ -67,11 +67,18 @@
     </audio>
 
     <script>
-        function playAudio() {
+        document.addEventListener("DOMContentLoaded", function() {
             var audio = document.getElementById("myAudio");
-            audio.play();
-        }
+            var button = document.querySelector(".play-button");
+
+            button.addEventListener("click", function() {
+                audio.play();
+            });
+        });
     </script>
 </body>
+
+</html>
+
 
 </html>
