@@ -29,14 +29,33 @@
         }
 
         .error-message {
-            font-size: calc(50vw / 10); /* Taille de police égale à 50% de la largeur de la fenêtre, divisée par 10 pour un ajustement visuel */
-            font-weight: bold; /* Texte en gras */
+            font-size: 18px; /* Taille de police ajustée pour les smartphones */
+            font-weight: bold;
             text-align: center;
-            color: black !important; /* Couleur du texte en noir */
-            width: 50vw; /* Largeur du texte égale à 50% de la largeur de la fenêtre */
-            position: relative; /* Assure que le texte est affiché au-dessus de la superposition */
-            z-index: 1; /* Assure que le texte est affiché au-dessus de la superposition */
-            margin-bottom: 20px; /* Espacement en bas du message */
+            color: black !important;
+            width: 80vw; /* Largeur du texte ajustée pour les smartphones */
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .gif {
+            width: 80vw; /* Largeur du GIF ajustée pour les smartphones */
+            max-width: 300px; /* Largeur maximale du GIF pour les smartphones */
+            position: relative;
+            top: -50px;
+        }
+
+        @media (min-width: 768px) {
+            .error-message {
+                font-size: calc(50vw / 10);
+                width: 50vw;
+            }
+
+            .gif {
+                width: 50vw;
+                max-width: 500px;
+            }
         }
     </style>
 </head>
@@ -47,20 +66,29 @@
         PhD Student not found
     </div>
 
-    <!-- Balise audio invisible avec le chemin vers votre fichier audio sur GitHub -->
+    <!-- GIF proche du message -->
+    <img class="gif" src="https://Titux9537.github.io/giphy.gif" alt="GIF">
+
+    <!-- Balise audio invisible avec le chemin vers votre fichier audio -->
     <audio id="myAudio" autoplay loop style="display: none;">
         <source src="https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas l'élément audio.
     </audio>
 
     <script>
-        // Mute audio initially to prevent autoplay restrictions
+        // Lecture automatique de l'audio lorsque la page est chargée
         var audio = document.getElementById("myAudio");
-        audio.muted = true;
 
-        // Unmute and play when user interacts with the page
-        document.addEventListener("click", function() {
-            audio.muted = false;
+        // L'événement 'loadedmetadata' garantit que le média est prêt à être joué
+        audio.addEventListener("loadedmetadata", function() {
+            audio.play();
+        });
+
+        // Sur les appareils mobiles, certaines politiques de lecture automatique peuvent nécessiter
+        // que l'utilisateur interagisse d'abord avec la page avant que l'audio ne puisse être joué.
+        // Si l'audio ne se lit pas automatiquement, vous pouvez ajouter un événement 'touchstart'
+        // pour demander à l'utilisateur d'interagir avec la page, déclenchant ainsi l'audio.
+        document.body.addEventListener("touchstart", function() {
             audio.play();
         });
     </script>
