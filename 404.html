@@ -70,21 +70,14 @@
     <!-- GIF proche du message -->
     <img class="gif" src="https://Titux9537.github.io/giphy.gif" alt="GIF">
 
-    <!-- Balise audio invisible avec le chemin vers votre fichier audio -->
-    <audio id="myAudio">
-        <source src="https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3" type="audio/mpeg">
-        Votre navigateur ne supporte pas l'élément audio.
-    </audio>
-
     <!-- Bouton de lecture -->
     <button id="playButton">Lecture</button>
 
     <script>
-        var audio = document.getElementById("myAudio");
+        var audio = new Audio("https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3");
         var playButton = document.getElementById("playButton");
 
-        // Utilisez l'événement "touchstart" pour déclencher la lecture de l'audio
-        playButton.addEventListener("touchstart", function() {
+        playButton.addEventListener("click", function() {
             if (audio.paused) {
                 audio.play();
                 playButton.textContent = "Pause";
