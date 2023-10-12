@@ -32,7 +32,8 @@
             font-size: 18px; /* Taille de police ajustée pour les smartphones */
             font-weight: bold;
             text-align: center;
-            color: black !important;
+            color: gold; /* Couleur dorée du texte */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre portée 3D */
             width: 80vw; /* Largeur du texte ajustée pour les smartphones */
             position: relative;
             z-index: 1;
@@ -82,7 +83,8 @@
         var audio = document.getElementById("myAudio");
         var playButton = document.getElementById("playButton");
 
-        playButton.addEventListener("click", function() {
+        // Utilisez l'événement "touchstart" pour déclencher la lecture de l'audio
+        playButton.addEventListener("touchstart", function() {
             if (audio.paused) {
                 audio.play();
                 playButton.textContent = "Pause";
