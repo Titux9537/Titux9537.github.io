@@ -72,17 +72,13 @@
     <img class="gif" src="https://Titux9537.github.io/giphy.gif" alt="GIF">
 
     <script>
-        var musicStarted = false; // Variable pour suivre si la musique a déjà été lancée
-        
         // Démarrer la musique au premier contact avec l'écran
         document.addEventListener("touchstart", function() {
-            if (!musicStarted) {
-                var audio = new Audio("https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3");
-                audio.play();
-                musicStarted = true; // Mettre la variable à true pour indiquer que la musique a été lancée
-            }
+            var audio = new Audio("https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3");
+            audio.play();
         });
     </script>
 </body>
 
 </html>
+
