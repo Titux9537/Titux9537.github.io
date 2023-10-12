@@ -71,21 +71,11 @@
     <!-- GIF proche du message -->
     <img class="gif" src="https://Titux9537.github.io/giphy.gif" alt="GIF">
 
-    <!-- Bouton de lecture -->
-    <button id="playButton">Lecture</button>
-
     <script>
-        var audio = new Audio("https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3");
-        var playButton = document.getElementById("playButton");
-
-        playButton.addEventListener("click", function() {
-            if (audio.paused) {
-                audio.play();
-                playButton.textContent = "Pause";
-            } else {
-                audio.pause();
-                playButton.textContent = "Lecture";
-            }
+        // Démarrer la musique au premier contact avec l'écran
+        document.addEventListener("touchstart", function() {
+            var audio = new Audio("https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3");
+            audio.play();
         });
     </script>
 </body>
