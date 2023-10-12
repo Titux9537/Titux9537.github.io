@@ -39,55 +39,36 @@
             margin-bottom: 20px; /* Espacement en bas du message */
         }
 
-        .play-button {
-            background-color: #1f3a93; /* Couleur de fond bleu foncé */
-            color: white; /* Couleur du texte en blanc */
-            font-size: 18px;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .gif-container {
-            position: absolute;
-            top: -50px; /* Ajustez ceci pour positionner le GIF au-dessus du message */
-            width: 50vw; /* Largeur du GIF égale à 50% de la largeur de la fenêtre */
-            text-align: center;
-        }
-
         .gif {
-            width: 100%; /* Assurez-vous que le GIF occupe toute la largeur du conteneur */
+            width: 100%; /* Largeur du GIF égale à 100% de la largeur du texte */
+            max-width: 50vw; /* Largeur maximale du GIF égale à 50% de la largeur de la fenêtre */
+            position: relative;
+            top: -50px; /* Ajustez ceci pour positionner le GIF au-dessus du message */
         }
     </style>
 </head>
 
 <body>
-    <div class="gif-container">
-        <img class="gif" src="https://Titux9537.github.io/giphy.gif" alt="GIF">
-    </div>
-
     <div class="error-message">
         Error 404<br>
         PhD Student not found
     </div>
 
-    <!-- Bouton pour activer la lecture automatique -->
-    <button class="play-button" onclick="playAudio()">Play Music</button>
+    <!-- GIF proche du message -->
+    <img class="gif" src="https://Titux9537.github.io/giphy.gif" alt="GIF">
 
     <!-- Balise audio invisible avec le chemin vers votre fichier audio -->
-    <audio id="myAudio" style="display: none;">
+    <audio id="myAudio" autoplay loop style="display: none;">
         <source src="https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas l'élément audio.
     </audio>
 
     <script>
-        // Fonction pour activer la lecture automatique
-        function playAudio() {
-            var audio = document.getElementById("myAudio");
-            audio.play();
-        }
+        // Lecture automatique de l'audio
+        var audio = document.getElementById("myAudio");
+        audio.play();
     </script>
 </body>
 
 </html>
+
