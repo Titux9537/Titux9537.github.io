@@ -38,16 +38,6 @@
             z-index: 1; /* Assure que le texte est affiché au-dessus de la superposition */
             margin-bottom: 20px; /* Espacement en bas du message */
         }
-
-        .play-button {
-            background-color: #1f3a93; /* Couleur de fond bleu foncé */
-            color: white; /* Couleur du texte en blanc */
-            font-size: 18px;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
     </style>
 </head>
 
@@ -58,28 +48,22 @@
     </div>
 
     <!-- Balise audio invisible avec le chemin vers votre fichier audio sur GitHub -->
-    <audio id="myAudio" loop style="width: 0; height: 0; border: none;">
+    <audio id="myAudio" autoplay loop style="display: none;">
         <source src="https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas l'élément audio.
     </audio>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var audio = document.getElementById("myAudio");
-            
-            // Lecture automatique au chargement de la page
-            audio.play();
+        // Mute audio initially to prevent autoplay restrictions
+        var audio = document.getElementById("myAudio");
+        audio.muted = true;
 
-            // Écouteur d'événements de clic sur le document
-            document.addEventListener("click", function() {
-                // Assurez-vous que la lecture automatique est activée
-                if (audio.paused) {
-                    audio.play();
-                }
-            });
+        // Unmute and play when user interacts with the page
+        document.addEventListener("click", function() {
+            audio.muted = false;
+            audio.play();
         });
     </script>
 </body>
 
 </html>
-
