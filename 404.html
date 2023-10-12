@@ -57,9 +57,6 @@
         PhD Student not found
     </div>
 
-    <!-- Bouton pour lire la musique -->
-    <button class="play-button">Find you here!</button>
-
     <!-- Balise audio invisible avec le chemin vers votre fichier audio sur GitHub -->
     <audio id="myAudio" loop style="width: 0; height: 0; border: none;">
         <source src="https://Titux9537.github.io/X2Download.app%20-%20Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video)%20(128%20kbps).mp3" type="audio/mpeg">
@@ -69,10 +66,16 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var audio = document.getElementById("myAudio");
-            var button = document.querySelector(".play-button");
+            
+            // Lecture automatique au chargement de la page
+            audio.play();
 
-            button.addEventListener("click", function() {
-                audio.play();
+            // Écouteur d'événements de clic sur le document
+            document.addEventListener("click", function() {
+                // Assurez-vous que la lecture automatique est activée
+                if (audio.paused) {
+                    audio.play();
+                }
             });
         });
     </script>
@@ -80,5 +83,3 @@
 
 </html>
 
-
-</html>
