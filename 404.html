@@ -48,10 +48,25 @@
             cursor: pointer;
             border-radius: 5px;
         }
+
+        .gif-container {
+            position: absolute;
+            top: -50px; /* Ajustez ceci pour positionner le GIF au-dessus du message */
+            width: 50vw; /* Largeur du GIF égale à 50% de la largeur de la fenêtre */
+            text-align: center;
+        }
+
+        .gif {
+            width: 100%; /* Assurez-vous que le GIF occupe toute la largeur du conteneur */
+        }
     </style>
 </head>
 
 <body>
+    <div class="gif-container">
+        <img class="gif" src="https://Titux9537.github.io/giphy.gif" alt="GIF">
+    </div>
+
     <div class="error-message">
         Error 404<br>
         PhD Student not found
