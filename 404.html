@@ -5,42 +5,51 @@
   <title>Error 404</title>
 </head>
 <body>
-  <img src="background.jpg" alt="Background" style="width: 100%; height: 100%;">
-  <div style="width: 100%; text-align: center; margin-top: 100px;">
-    <h1 style="font-size: 80px; color: gold; text-shadow: 1px 1px 2px black;">Error 404</h1>
-    <h3 style="font-size: 40px; color: gold; text-shadow: 1px 1px 2px black;">PhD Student not found</h3>
-    <img src="giphy.gif" alt="Geologist GIF" style="width: 80%;">
+  <div style="width: 100%; height: 100%; background-image: url('background.jpg');">
+    <div style="width: 100%; text-align: center; margin-top: 100px;">
+      <h1 style="font-size: 80px; color: gold; text-shadow: 1px 1px 2px black;">Error 404</h1>
+      <h3 style="font-size: 40px; color: gold; text-shadow: 1px 1px 2px black;">PhD Student not found</h3>
+      <img src="giphy.gif" alt="Geologist GIF" style="width: 80%;">
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 100px;">
+      <img src="404_1.jpg" alt="404 Image 1" class="geologue">
+      <img src="404_2.jpg" alt="404 Image 2" class="geologue">
+      <img src="404_3.jpg" alt="404 Image 3" class="geologue">
+      <img src="404_4.jpg" alt="404 Image 4" class="geologue">
+    </div>
+    <audio src="X2Download.app - Rick Astley - Never Gonna Give You Up (Official Music Video) (128 kbps).mp3" controls></audio>
+    <button type="button" style="margin-top: 100px;" onclick="play()">Lire</button>
   </div>
-  <div style="display: flex; justify-content: center; align-items: center; margin-top: 100px;">
-    <img src="404_1.jpg" alt="404 Image 1" class="geologue">
-    <img src="404_2.jpg" alt="404 Image 2" class="geologue">
-    <img src="404_3.jpg" alt="404 Image 3" class="geologue">
-    <img src="404_4.jpg" alt="404 Image 4" class="geologue">
-  </div>
-  <audio src="X2Download.app - Rick Astley - Never Gonna Give You Up (Official Music Video) (128 kbps).mp3" controls></audio>
-  <button type="button" style="margin-top: 100px;" onclick="play()">Lire</button>
-</body>
-<script>
-  // Initialisation des variables
-  const message = document.querySelector("h1");
-  const gif = document.querySelector("img");
-  const geologues = document.querySelectorAll("img.geologue");
-  const center = message.getBoundingClientRect().center;
-  const radius = center.y - message.getBoundingClientRect().height / 2;
-
-  // Fonction de rotation des geologues
-  function rotate() {
-    for (let i = 0; i < geologues.length; i++) {
-      geologues[i].style.transform = `rotate(-30deg) translate(${radius}px, 0)`;
+  <script>
+    function resize() {
+      const images = document.querySelectorAll(".geologue");
+      for (let i = 0; i < images.length; i++) {
+        images[i].style.width = images[i].naturalWidth * 0.8;
+        images[i].style.height = images[i].naturalHeight * 0.8;
+      }
     }
-  }
 
-  // Lancement de la musique au chargement de la page
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector("audio").play();
-  });
+    // Au chargement de la page, on adapte la taille des images à la taille de l'écran
+    window.addEventListener("load", resize);
 
-  // Rotation des geologues
-  setInterval(rotate, 300);
-</script>
+    // Au changement de taille de l'écran, on adapte la taille des images
+    window.addEventListener("resize", resize);
+
+    // Fonction de rotation des geologues
+    function rotate() {
+      for (let i = 0; i < images.length; i++) {
+        images[i].style.transform = `rotate(-30deg) translate(${radius}px, 0)`;
+      }
+    }
+
+    // Lancement de la musique au chargement de la page
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector("audio").play();
+    });
+
+    // Rotation des geologues
+    setInterval(rotate, 300);
+  </script>
+</body>
+</html>
 
