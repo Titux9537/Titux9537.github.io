@@ -31,11 +31,10 @@
     function animate() {
       // Mise à jour des positions des images
       for (const image of images) {
-        const angle = image.style.transform.slice(5, -2);
-        const x = gif.offsetLeft + gif.offsetWidth / 2 + Math.cos(angle) * image.width;
-        const y = gif.offsetTop + gif.offsetHeight / 2 + Math.sin(angle) * image.height;
-        image.style.left = x;
-        image.style.top = y;
+        const x = image.offsetLeft - gif.offsetLeft;
+        const y = image.offsetTop - gif.offsetTop;
+        const angle = Math.atan2(y, x);
+        image.style.transform = "rotate(" + angle + "deg)";
       }
 
       // Répétition de l'animation
@@ -47,3 +46,4 @@
   </script>
 </body>
 </html>
+
