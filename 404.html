@@ -1,94 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error 404</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            position: relative;
-            background: url('https://cdn.stocksnap.io/img-thumbs/960w/rocky-landscape_JFAW0FJ4CN.jpg') center center / cover no-repeat; /* Image de fond */
-        }
-
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(234, 247, 234, 0.7); /* Couleur de fond vert clair doux avec opacité */
-        }
-
-        .error-message {
-            font-size: 23.4px; /* Augmenter la taille du message de 30% */
-            font-weight: bold;
-            text-align: center;
-            color: gold; /* Couleur dorée du texte */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre portée 3D */
-            width: 80vw;
-            position: relative;
-            z-index: 1;
-            margin-bottom: 20px;
-            top: -30%; /* Déplacer le message de 30% vers le haut */
-        }
-
-        .gif-central {
-            width: 100px; /* Largeur du GIF central */
-            height: 100px; /* Hauteur du GIF central */
-        }
-
-        .orbit {
-            position: absolute;
-            width: 50px; /* Largeur des SVGs en orbite */
-            height: 50px; /* Hauteur des SVGs en orbite */
-            animation: rotate 5s linear infinite; /* Animation de rotation */
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-        }
-
-        @media (max-width: 600px) {
-            img {
-                max-width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Orbites</title>
 </head>
-
 <body>
-    <div class="error-message">
-        Error 404<br>
-        PhD Student not found
-    </div>
+  <div class="gif">
+    <img src="https://Titux9537.github.io/geologue.gif" alt="Géologue en orbite">
+  </div>
+  <img src="https://Titux9537.github.io/planete1.png" alt="Une planète">
+  <img src="https://Titux9537.github.io/planete2.png" alt="Une autre planète">
+  <img src="https://Titux9537.github.io/planete3.png" alt="Une troisième planète">
+  <img src="https://Titux9537.github.io/planete4.png" alt="Une quatrième planète">
 
-    <img class="gif-central" src="https://Titux9537.github.io/giphy.gif" alt="GIF central">
+  <script>
+    // Déclaration des variables
+    const images = document.querySelectorAll("img");
+    const gif = document.querySelector(".gif");
 
-    <div class="orbit" style="top: calc(50% - 150px); left: calc(50% + 150px);">
-        <img src="https://Titux9537.github.io/geologue.png" background-color="transparent" alt="SVG en orbite">
-    </div>
-    <div class="orbit" style="top: calc(50% - 150px); left: calc(50% - 150px);">
-        <img src="https://Titux9537.github.io/geologue.png" background-color="transparent" alt="SVG en orbite">
-    </div>
-    <div class="orbit" style="top: calc(50% + 150px); left: calc(50% - 150px);">
-        <img src="https://Titux9537.github.io/geologue.png" background-color="transparent" alt="SVG en orbite">
-    </div>
+    // Initialisation des propriétés des images
+    for (const image of images) {
+      image.style.position = "absolute";
+      image.style.top = 0;
+      image.style.left = 0;
+      image.style.zIndex = 1;
+      image.style.transform = "rotate(0deg)";
+    }
+
+    // Animation des images
+    function animate() {
+      // Mise à jour des positions des images
+      for (const image of images) {
+        const angle = image.style.transform.slice(5, -2);
+        const x = gif.offsetLeft + gif.offsetWidth / 2 + Math.cos(angle) * image.width;
+        const y = gif.offsetTop + gif.offsetHeight / 2 + Math.sin(angle) * image.height;
+        image.style.left = x;
+        image.style.top = y;
+      }
+
+      // Répétition de l'animation
+      window.requestAnimationFrame(animate);
+    }
+
+    // Démarrage de l'animation
+    animate();
+  </script>
+</body>
+</html>
