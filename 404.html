@@ -1,49 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Orbites</title>
+  <meta charset="utf-8">
+  <title>Error 404</title>
 </head>
 <body>
-  <div class="gif">
-    <img src="https://Titux9537.github.io/geologue.gif" alt="Géologue en orbite">
+  <img src="background.jpg" alt="Background" style="width: 100%; height: 100%;">
+  <div style="width: 100%; text-align: center; margin-top: 100px;">
+    <h1 style="font-size: 80px; color: gold; text-shadow: 1px 1px 2px black;">Error 404</h1>
+    <h3 style="font-size: 40px; color: gold; text-shadow: 1px 1px 2px black;">PhD Student not found</h3>
+    <img src="giphy.gif" alt="Geologist GIF" style="width: 80%;">
   </div>
-  <img src="https://Titux9537.github.io/planete1.png" alt="Une planète">
-  <img src="https://Titux9537.github.io/planete2.png" alt="Une autre planète">
-  <img src="https://Titux9537.github.io/planete3.png" alt="Une troisième planète">
-  <img src="https://Titux9537.github.io/planete4.png" alt="Une quatrième planète">
-
   <script>
-    // Déclaration des variables
-    const images = document.querySelectorAll("img");
-    const gif = document.querySelector(".gif");
+    // Initialisation des variables
+    const message = document.querySelector("h1");
+    const gif = document.querySelector("img");
+    const geologue = document.querySelector("img.geologue");
+    const center = message.getBoundingClientRect().center;
+    const radius = center.y - message.getBoundingClientRect().height / 2;
 
-    // Initialisation des propriétés des images
-    for (const image of images) {
-      image.style.position = "absolute";
-      image.style.top = 0;
-      image.style.left = 0;
-      image.style.zIndex = 1;
-      image.style.transform = "rotate(0deg)";
+    // Fonction de rotation du geologue
+    function rotate() {
+      geologue.style.transform = `rotate(-30deg)`;
     }
 
-    // Animation des images
-    function animate() {
-      // Mise à jour des positions des images
-      for (const image of images) {
-        const x = image.offsetLeft - gif.offsetLeft;
-        const y = image.offsetTop - gif.offsetTop;
-        const angle = Math.atan2(y, x);
-        image.style.transform = "rotate(" + angle + "deg)";
-      }
+    // Lancement de la musique au chargement de la page
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector("audio").play();
+    });
 
-      // Répétition de l'animation
-      window.requestAnimationFrame(animate);
-    }
-
-    // Démarrage de l'animation
-    animate();
+    // Rotation du geologue
+    setInterval(rotate, 300);
   </script>
+  <audio src="X2Download.app - Rick Astley - Never Gonna Give You Up (Official Music Video) (128 kbps).mp3" controls></audio>
 </body>
 </html>
 
