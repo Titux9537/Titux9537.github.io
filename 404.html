@@ -17,8 +17,10 @@
       <img src="404_3.jpg" alt="404 Image 3" class="geologue">
       <img src="404_4.jpg" alt="404 Image 4" class="geologue">
     </div>
-    <audio src="X2Download.app - Rick Astley - Never Gonna Give You Up (Official Music Video) (128 kbps).mp3" controls></audio>
-    <button type="button" style="margin-top: 100px;" onclick="play()">Lire</button>
+    <audio src="X2Download.app - Rick Astley - Never Gonna Give You Up (Official Music Video) (128 kbps).mp3" controls>
+      <source src="X2Download.app - Rick Astley - Never Gonna Give You Up (Official Music Video) (128 kbps).mp3" type="audio/mp3">
+    </audio>
+    <button type="button" style="display: none;">Lire</button>
   </div>
   <script>
     function resize() {
@@ -45,6 +47,7 @@
     // Lancement de la musique au chargement de la page
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelector("audio").play();
+      document.querySelector("button").style.display = "none";
     });
 
     // Rotation des geologues
@@ -52,4 +55,3 @@
   </script>
 </body>
 </html>
-
