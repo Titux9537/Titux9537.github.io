@@ -11,28 +11,36 @@
     <h3 style="font-size: 40px; color: gold; text-shadow: 1px 1px 2px black;">PhD Student not found</h3>
     <img src="giphy.gif" alt="Geologist GIF" style="width: 80%;">
   </div>
-  <script>
-    // Initialisation des variables
-    const message = document.querySelector("h1");
-    const gif = document.querySelector("img");
-    const geologue = document.querySelector("img.geologue");
-    const center = message.getBoundingClientRect().center;
-    const radius = center.y - message.getBoundingClientRect().height / 2;
-
-    // Fonction de rotation du geologue
-    function rotate() {
-      geologue.style.transform = `rotate(-30deg)`;
-    }
-
-    // Lancement de la musique au chargement de la page
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelector("audio").play();
-    });
-
-    // Rotation du geologue
-    setInterval(rotate, 300);
-  </script>
+  <div style="display: flex; justify-content: center; align-items: center; margin-top: 100px;">
+    <img src="404_1.jpg" alt="404 Image 1" class="geologue">
+    <img src="404_2.jpg" alt="404 Image 2" class="geologue">
+    <img src="404_3.jpg" alt="404 Image 3" class="geologue">
+    <img src="404_4.jpg" alt="404 Image 4" class="geologue">
+  </div>
   <audio src="X2Download.app - Rick Astley - Never Gonna Give You Up (Official Music Video) (128 kbps).mp3" controls></audio>
+  <button type="button" style="margin-top: 100px;" onclick="play()">Lire</button>
 </body>
-</html>
+<script>
+  // Initialisation des variables
+  const message = document.querySelector("h1");
+  const gif = document.querySelector("img");
+  const geologues = document.querySelectorAll("img.geologue");
+  const center = message.getBoundingClientRect().center;
+  const radius = center.y - message.getBoundingClientRect().height / 2;
+
+  // Fonction de rotation des geologues
+  function rotate() {
+    for (let i = 0; i < geologues.length; i++) {
+      geologues[i].style.transform = `rotate(-30deg) translate(${radius}px, 0)`;
+    }
+  }
+
+  // Lancement de la musique au chargement de la page
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("audio").play();
+  });
+
+  // Rotation des geologues
+  setInterval(rotate, 300);
+</script>
 
